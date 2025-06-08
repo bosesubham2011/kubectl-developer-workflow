@@ -19,3 +19,29 @@ module "eks_nodegroup" {
   ssh_key_name        = "my-ssh-key"
   capacity_type       = "ON_DEMAND"
 }
+
+module "security_groups" {
+  source = "./sg"
+  vpc_id = module.vpc.vpc_id
+
+  ingress_rules_eks = [
+    {
+      from_port   = 443
+      to_port     = 443
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  ]
+}
+
+module "eks_cluster" {
+  source              = "./eks-cluster"
+  cluster_name        = "my-cluster"
+  vpc_id              = module.vpc.vpc_id
+  subnet_ids          = module.vpc.priv_sub
+  security_group_ids  = [aws_security_group.eks_cluster_sg.id]
+  tags = {
+    Name = "eks-cluster"
+    Environment = "production"
+  }
+}
