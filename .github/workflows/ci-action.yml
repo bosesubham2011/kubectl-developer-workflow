@@ -1,17 +1,10 @@
 name: Terraform Deployment to Prod
 
 on:
-<<<<<<< HEAD:.github/workflows/ci-action.yml
-  push:
-    #branches:
-      #- main
-  workflow_dispatch:
-=======
   #  push:
   #    branches:
   #      - main
-  workflow-dispatch:
->>>>>>> 7b8b2cdfa6794ef8e642601f1b3771710a14e511:.github/ci-action.yml
+  workflow_dispatch:
 jobs:
   terraform:
     name: Terraform Deploy
