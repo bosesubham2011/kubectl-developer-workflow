@@ -1,5 +1,5 @@
 output "vpc_id" {
-    value = aws.main_vpc.id
+    value = aws_vpc.main_vpc.id
 }
 
 output "priv_sub" {
