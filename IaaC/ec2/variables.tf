@@ -1,5 +1,5 @@
 variable "ec2_instance_type" {
-  default = "t3.nano"
+  default = "t2.micro"
 }
 
 variable "ec2_key_name" {

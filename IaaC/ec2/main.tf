@@ -1,6 +1,6 @@
 data "aws_ami" "ec2_ami" {
     most_recent = true
-    owners = ["137112412989"]
+    owners = ["099720109477"]
     filter {
       name = "name"
       values = ["ubuntu/images/*"]
