@@ -1,10 +1,17 @@
 name: Terraform Deployment to Prod
 
 on:
+<<<<<<< HEAD:.github/workflows/ci-action.yml
   push:
     #branches:
       #- main
   workflow_dispatch:
+=======
+  #  push:
+  #    branches:
+  #      - main
+  workflow-dispatch:
+>>>>>>> 7b8b2cdfa6794ef8e642601f1b3771710a14e511:.github/ci-action.yml
 jobs:
   terraform:
     name: Terraform Deploy
@@ -34,11 +41,10 @@ jobs:
 
       - name: Plan Terraform
         run: terraform plan -out=tfplan
-
-      - name: Apply Terraform
-        if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve tfplan
-        env:
-          TF_VAR_environment: prod
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#      - name: Apply Terraform
+#        if: github.ref == 'refs/heads/main'
+#        run: terraform apply -auto-approve tfplan
+#        env:
+#          TF_VAR_environment: prod
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
