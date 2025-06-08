@@ -24,6 +24,4 @@ resource "aws_eks_node_group" "this" {
   lifecycle {
     create_before_destroy = true
   }
-
-  depends_on = var.depends_on
 }
