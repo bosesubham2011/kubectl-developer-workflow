@@ -3,9 +3,9 @@ output "my_vpc_id" {
 }
 
 output "priv_sub_id" {
-    value = module.priv_sub.id
+    value = module.vpc.priv_sub.id
 }
 
 output "pub_sub_id" {
-  value = module.pub_sub.id
+  value = module.vpc.pub_sub.id
 }
