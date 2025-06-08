@@ -19,7 +19,7 @@ resource "aws_instance" "my_ec2" {
     count = length(var.aws_subnet_cidr)
     ami = data.aws_ami.ec2_ami.id
     instance_type = var.ec2_instance_type
-    subnet_id = values(module.vpc.aws_subnet_cidr)[0]
+    subnet_id = values(var.aws_subnet_cidr)[0]
 
     key_name = var.ec2_key_name
     tags = {
