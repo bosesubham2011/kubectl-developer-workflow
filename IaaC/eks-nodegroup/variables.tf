@@ -8,11 +8,6 @@ variable "node_group_name" {
   description = "Name for the EKS node group"
 }
 
-variable "node_role_arn" {
-  type        = string
-  description = "IAM role ARN for the EKS node group"
-}
-
 variable "subnet_ids" {
   type        = list(string)
   description = "List of subnet IDs for the node group"

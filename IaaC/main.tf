@@ -11,7 +11,6 @@ module "eks_nodegroup" {
   source              = "./eks-nodegroup"
   cluster_name        = "my-cluster"
   node_group_name     = "my-ng"
-  node_role_arn       = aws_iam_role.eks_nodegroup.arn
   subnet_ids          = ["subnet-123", "subnet-456"]
   instance_types      = ["t3.medium"]
   desired_size        = 2
