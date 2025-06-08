@@ -39,7 +39,7 @@ resource "aws_eks_node_group" "this" {
   cluster_name    = var.cluster_name
   node_group_name = var.node_group_name
   node_role_arn   = aws_iam_role.eks_nodegroup
-  subnet_ids      = values(var.subnet_ids)[0]
+  subnet_ids      = values(var.subnet_ids)
 
   scaling_config {
     desired_size = var.desired_size
