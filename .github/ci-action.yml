@@ -1,9 +1,9 @@
 name: Terraform Deployment to Prod
 
 on:
-  push:
-    #branches:
-      #- main
+  #  push:
+  #    branches:
+  #      - main
   workflow-dispatch:
 jobs:
   terraform:
@@ -34,11 +34,10 @@ jobs:
 
       - name: Plan Terraform
         run: terraform plan -out=tfplan
-
-      - name: Apply Terraform
-        if: github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve tfplan
-        env:
-          TF_VAR_environment: prod
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#      - name: Apply Terraform
+#        if: github.ref == 'refs/heads/main'
+#        run: terraform apply -auto-approve tfplan
+#        env:
+#          TF_VAR_environment: prod
+#          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
