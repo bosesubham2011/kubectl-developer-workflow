@@ -16,8 +16,12 @@ data "aws_ami" "ec2_ami" {
 }
 
 resource "aws_instance" "my_ec2" {
+    count = length(var.aws_subnet_cidr)
     ami = data.aws_ami.ec2_ami.id
     instance_type = var.ec2_instance_type
-    subnet_id = var.aws_subnet.priv_sub[0]
+    subnet_id = var.aws_subnet_cidr[count.index]
     key_name = var.ec2_key_name
+    tags = {
+        Name = "Ec2-instance=${count.index + 1}"
+    }
 }
