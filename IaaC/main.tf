@@ -11,7 +11,7 @@ module "eks_nodegroup" {
   source              = "./eks-nodegroup"
   cluster_name        = "my-cluster"
   node_group_name     = "my-ng"
-  subnet_ids          = ["subnet-123", "subnet-456"]
+  subnet_ids          = module.vpc.priv_sub
   instance_types      = ["t3.medium"]
   desired_size        = 2
   max_size            = 3
